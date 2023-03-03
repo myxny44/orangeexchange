@@ -12,11 +12,11 @@ public class Company {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Getter
+    @Getter @Setter
     private Long id;
 
     @Column(nullable = false, name = "name")
-    @Getter
+    @Getter @Setter
     private String name;
 
 }

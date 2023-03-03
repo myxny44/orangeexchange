@@ -5,8 +5,6 @@ CREATE TABLE companies (
 
 CREATE TABLE operators (
 	id SERIAL PRIMARY KEY,
-	username VARCHAR(100) NOT NULL,
-	password VARCHAR(100) NOT NULL,
 	displayname VARCHAR(100) NOT NULL,
 	companyid INT NOT NULL,
 	FOREIGN KEY (companyid) REFERENCES companies(id)
@@ -21,11 +19,11 @@ CREATE TABLE cashboxes (
 
 CREATE TABLE charges (
     id SERIAL PRIMARY KEY,
-	chargedate DATE NOT NULL
+	chargedate DATE NOT NULL,
     operatorid INT NOT NULL,
     cashboxid INT NOT NULL,
 	FOREIGN KEY (operatorid) REFERENCES operators(id),
-	FOREIGN KEY (cashboxid) REFERENCES cashboxes(id),
+	FOREIGN KEY (cashboxid) REFERENCES cashboxes(id)
 );
 
 CREATE TABLE rates (
@@ -39,10 +37,12 @@ CREATE TABLE rates (
 
 CREATE TABLE exchangeoperations (
     id SERIAL PRIMARY KEY,
-	amount REAL NOT NULL
+	amount REAL NOT NULL,
+	summ REAL NOT NULL,
+    operationdate DATE NOT NULL,
     operatorid INT NOT NULL,
     rateid INT NOT NULL,
 	FOREIGN KEY (operatorid) REFERENCES operators(id),
-	FOREIGN KEY (rateid) REFERENCES rates(id),
+	FOREIGN KEY (rateid) REFERENCES rates(id)
 );
 

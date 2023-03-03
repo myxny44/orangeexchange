@@ -1,6 +1,7 @@
 package com.myxny44.exchange.database.entity;
 
 import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 
@@ -11,23 +12,16 @@ public class Operator {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Getter
+    @Getter @Setter
     private Long id;
 
-    @Column(nullable = false, name = "username")
-    @Getter
-    private String username;
-
-    @Column(nullable = false, name = "password")
-    @Getter
-    private String password;
-
     @Column(nullable = false, name = "displayname")
-    @Getter
+    @Getter @Setter
     private String displayname;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "companyid", nullable = false)
+    @Getter @Setter
     private Company company;
 
 }
