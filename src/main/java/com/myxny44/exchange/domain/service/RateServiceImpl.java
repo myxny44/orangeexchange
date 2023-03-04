@@ -8,6 +8,7 @@ import com.myxny44.exchange.domain.service.interfaces.RateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -37,7 +38,7 @@ public class RateServiceImpl implements RateService {
     }
 
     @Override
-    public List<RateResponseEntity> getByDate(String date) {
+    public List<RateResponseEntity> getByDate(Date date) {
         return rateRepository.findByDate(date)
                 .stream()
                 .map(Rate::toResponseEntity)

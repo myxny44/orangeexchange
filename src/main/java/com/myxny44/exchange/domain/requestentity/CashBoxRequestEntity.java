@@ -14,12 +14,12 @@ public class CashBoxRequestEntity {
     private String name;
 
     @Getter @Setter
-    private Long companyid;
+    private Long companyId;
 
     public CashBox toDbEntity(CompaniesRepository companiesRepository) {
         CashBox cashBox = new CashBox();
         cashBox.setName(this.getName());
-        cashBox.setCompany(companiesRepository.getById(this.getCompanyid()));
+        cashBox.setCompany(companiesRepository.getById(this.getCompanyId()));
         return cashBox;
     }
 

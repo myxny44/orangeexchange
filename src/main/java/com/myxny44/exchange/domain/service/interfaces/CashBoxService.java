@@ -12,7 +12,7 @@ public interface CashBoxService {
 
     CashBoxRequestEntity editCashBox(CashBoxRequestEntity cashBoxRequestEntity);
 
-    void deleteCashBox(List<CashBoxRequestEntity> cashBoxRequestEntityList);
+    void deleteCashBox(List<Long> ids);
 
     void addCashBox(List<CashBoxRequestEntity> cashBoxRequestEntityList);
 

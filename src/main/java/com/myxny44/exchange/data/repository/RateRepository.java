@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.sql.Date;
 import java.util.List;
 
 @Repository
@@ -15,6 +16,6 @@ public interface RateRepository extends JpaRepository<Rate, Long> {
     List<Rate> findByCompany(@Param("companyid") Long companyId);
 
     @Query("SELECT r FROM Rate r WHERE r.rateDate = :ratedate")
-    List<Rate> findByDate(@Param("ratedate") String rateDate);
+    List<Rate> findByDate(@Param("ratedate") Date rateDate);
 
 }

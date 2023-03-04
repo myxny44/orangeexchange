@@ -12,6 +12,6 @@ public interface OperatorService {
 
     void createOperator(List<OperatorRequestEntity> operatorRequestEntityList);
 
-    void deleteOperator(List<OperatorRequestEntity> operatorRequestEntityList);
+    void deleteOperator(List<Long> ids);
 
 }

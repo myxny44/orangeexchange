@@ -38,8 +38,8 @@ public class CashBoxController {
     }
 
     @DeleteMapping("/api/cashbox")
-    public ResponseEntity<?> deleteCashBox(@RequestBody List<CashBoxRequestEntity> cashBoxRequestEntityList) {
-        cashBoxService.deleteCashBox(cashBoxRequestEntityList);
+    public ResponseEntity<?> deleteCashBox(@RequestBody List<Long> ids) {
+        cashBoxService.deleteCashBox(ids);
         return ResponseEntity.noContent().build();
     }
 

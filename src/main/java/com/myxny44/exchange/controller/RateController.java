@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Date;
 import java.util.List;
 
 @RestController
@@ -26,7 +27,7 @@ public class RateController {
     }
 
     @GetMapping("/api/rate/date/{date}")
-    public ResponseEntity<List<RateResponseEntity>> getByDate(@PathVariable String date){
+    public ResponseEntity<List<RateResponseEntity>> getByDate(@PathVariable Date date){
         return ResponseEntity.ok(rateService.getByDate(date));
     }
 

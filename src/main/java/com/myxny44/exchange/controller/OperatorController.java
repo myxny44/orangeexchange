@@ -32,8 +32,8 @@ public class OperatorController {
     }
 
     @DeleteMapping("/api/operator")
-    public ResponseEntity<?> deleteOperator(@RequestBody List<OperatorRequestEntity> operatorRequestEntityList){
-        operatorService.deleteOperator(operatorRequestEntityList);
+    public ResponseEntity<?> deleteOperator(@RequestBody List<Long> ids){
+        operatorService.deleteOperator(ids);
         return ResponseEntity.noContent().build();
     }
 

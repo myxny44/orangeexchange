@@ -49,12 +49,7 @@ public class OperatorServiceImpl implements OperatorService {
     }
 
     @Override
-    public void deleteOperator(List<OperatorRequestEntity> operatorRequestEntityList) {
-        operatorRepository.deleteAll(
-                operatorRequestEntityList
-                        .stream()
-                        .map(operatorRequestEntity -> operatorRequestEntity.toDbEntity(companiesRepository))
-                        .collect(Collectors.toList())
-        );
+    public void deleteOperator(List<Long> ids) {
+        operatorRepository.deleteAllById(ids);
     }
 }

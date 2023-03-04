@@ -44,10 +44,8 @@ public class CashBoxServiceImpl implements CashBoxService {
     }
 
     @Override
-    public void deleteCashBox(List<CashBoxRequestEntity> cashBoxRequestEntityList) {
-        cashBoxRepository.deleteAll(cashBoxRequestEntityList.stream()
-                .map( cashBoxRequestEntity -> cashBoxRequestEntity.toDbEntity(companiesRepository) )
-                .collect(Collectors.toList()));
+    public void deleteCashBox(List<Long> ids) {
+        cashBoxRepository.deleteAllById(ids);
     }
 
     @Override

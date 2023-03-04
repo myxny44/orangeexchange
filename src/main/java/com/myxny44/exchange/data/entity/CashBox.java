@@ -1,6 +1,5 @@
 package com.myxny44.exchange.data.entity;
 
-import com.myxny44.exchange.data.repository.CompaniesRepository;
 import com.myxny44.exchange.domain.requestentity.CashBoxRequestEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -30,7 +29,7 @@ public class CashBox {
         CashBoxRequestEntity entity = new CashBoxRequestEntity();
         entity.setId(this.getId());
         entity.setName(this.getName());
-        entity.setCompanyid(this.company.getId());
+        entity.setCompanyId(this.company.getId());
 
         return entity;
     }
