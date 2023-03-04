@@ -1,5 +1,6 @@
-package com.myxny44.exchange.database.entity;
+package com.myxny44.exchange.data.entity;
 
+import com.myxny44.exchange.domain.requestentity.RateResponseEntity;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -32,5 +33,16 @@ public class Rate {
     @JoinColumn(name = "companyid", nullable = false)
     @Getter @Setter
     private Company company;
+
+    public RateResponseEntity toResponseEntity() {
+        RateResponseEntity rateResponseEntity = new RateResponseEntity();
+        rateResponseEntity.setId(this.getId());
+        rateResponseEntity.setRateDate(this.getRateDate());
+        rateResponseEntity.setCurs(this.getCurs());
+        rateResponseEntity.setCodValuta(this.getCodValuta());
+        rateResponseEntity.setCompanyName(this.getCompany().getName());
+        rateResponseEntity.setCompanyId(this.getCompany().getId());
+        return rateResponseEntity;
+    }
 
 }

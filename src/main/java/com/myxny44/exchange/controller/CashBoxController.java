@@ -1,71 +1,46 @@
 package com.myxny44.exchange.controller;
 
-import com.myxny44.exchange.database.entity.CashBox;
-import com.myxny44.exchange.database.repository.CashBoxRepository;
-import com.myxny44.exchange.database.repository.CompaniesRepository;
-import com.myxny44.exchange.requestentity.CashBoxRequestEntity;
+import com.myxny44.exchange.domain.requestentity.CashBoxRequestEntity;
+import com.myxny44.exchange.domain.service.interfaces.CashBoxService;
+import com.myxny44.exchange.domain.service.CashBoxServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 public class CashBoxController {
 
     @Autowired
-    private CashBoxRepository cashBoxRepository;
-    @Autowired
-    private CompaniesRepository companiesRepository;
+    private final CashBoxService cashBoxService = new CashBoxServiceImpl();
 
     @GetMapping("/api/cashbox")
     public ResponseEntity<List<CashBoxRequestEntity>> getCashBox() {
-        List<CashBoxRequestEntity> cashBoxes = cashBoxRepository.findAll()
-                .stream()
-                .map(CashBox::toRequestEntity)
-                .collect(Collectors.toList());
-        return ResponseEntity.ok(cashBoxes);
+        return ResponseEntity.ok(cashBoxService.getAllCashBox());
     }
 
     @GetMapping("/api/cashbox/{companyId}")
     public ResponseEntity<List<CashBoxRequestEntity>> getCashBoxByCompanyId(@PathVariable Long companyId) {
-        List<CashBoxRequestEntity> cashBoxes = cashBoxRepository.findByCompany(companyId)
-                .stream()
-                .map(CashBox::toRequestEntity)
-                .collect(Collectors.toList());
-        return ResponseEntity.ok(cashBoxes);
+        return ResponseEntity.ok(cashBoxService.getCashBoxByCompanyId(companyId));
     }
 
     @PostMapping("/api/cashbox")
     public ResponseEntity<?> addCashBox(@RequestBody List<CashBoxRequestEntity> cashBoxRequestEntityList) {
-        cashBoxRepository.saveAll(cashBoxRequestEntityList.stream()
-                .map(this::toDbEntity)
-                .collect(Collectors.toList()));
+        cashBoxService.addCashBox(cashBoxRequestEntityList);
         return ResponseEntity.noContent().build();
     }
 
     @PutMapping("/api/cashbox")
     public ResponseEntity<CashBoxRequestEntity> editCashBox(@RequestBody CashBoxRequestEntity cashBoxRequestEntity) {
-        if (cashBoxRepository.existsById(cashBoxRequestEntity.getId())) {
-            return ResponseEntity.ok(cashBoxRepository.save(toDbEntity(cashBoxRequestEntity)).toRequestEntity());
-        } else
+        cashBoxService.editCashBox(cashBoxRequestEntity);
             return ResponseEntity.notFound().build();
     }
 
     @DeleteMapping("/api/cashbox")
     public ResponseEntity<?> deleteCashBox(@RequestBody List<CashBoxRequestEntity> cashBoxRequestEntityList) {
-        cashBoxRepository.deleteAll(cashBoxRequestEntityList.stream()
-                .map(this::toDbEntity)
-                .collect(Collectors.toList()));
+        cashBoxService.deleteCashBox(cashBoxRequestEntityList);
         return ResponseEntity.noContent().build();
-    }
-
-    private CashBox toDbEntity(CashBoxRequestEntity cashBoxRequestEntity) {
-        CashBox cashBox = new CashBox();
-        cashBox.setName(cashBoxRequestEntity.getName());
-        cashBox.setCompany(companiesRepository.getById(cashBoxRequestEntity.getCompanyid()));
-        return cashBox;
     }
 
 }

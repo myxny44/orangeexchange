@@ -1,6 +1,7 @@
-package com.myxny44.exchange.database.entity;
+package com.myxny44.exchange.data.entity;
 
-import com.myxny44.exchange.requestentity.CashBoxRequestEntity;
+import com.myxny44.exchange.data.repository.CompaniesRepository;
+import com.myxny44.exchange.domain.requestentity.CashBoxRequestEntity;
 import lombok.Getter;
 import lombok.Setter;
 

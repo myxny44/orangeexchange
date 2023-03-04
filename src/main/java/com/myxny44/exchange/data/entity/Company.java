@@ -1,4 +1,4 @@
-package com.myxny44.exchange.database.entity;
+package com.myxny44.exchange.data.entity;
 
 import lombok.Getter;
 import lombok.Setter;

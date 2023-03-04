@@ -1,4 +1,4 @@
-package com.myxny44.exchange.database;
+package com.myxny44.exchange.data;
 
 import org.flywaydb.core.Flyway;
 import org.springframework.beans.factory.annotation.Autowired;
