@@ -33,6 +33,13 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
-tasks.named('test') {
-	useJUnitPlatform()
+tasks.register('buildJar', Jar) {
+	archiveBaseName.set('exchange')
+	archiveVersion.set('0.0.1-SNAPSHOT')
+	manifest {
+		attributes 'Main-Class': 'com.myxny44.exchange.ExchangeApplication'
+	}
+	archiveFileName.set(archiveBaseName.get() + ".jar")
+	from sourceSets.main.output
+	with jar
 }

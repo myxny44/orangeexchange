@@ -186,7 +186,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "[\r\n    {\r\n        \"displayName\" : \"Operator1\",\r\n        \"companyId\" : 2\r\n    },\r\n    {\r\n        \"displayName\" : \"Operator2\",\r\n        \"companyId\" : 2\r\n    }\r\n]",
+							"raw": "[\r\n    {\r\n        \"displayName\" : \"Operator1\",\r\n        \"companyId\" : 1\r\n    },\r\n    {\r\n        \"displayName\" : \"Operator2\",\r\n        \"companyId\" : 1\r\n    }\r\n]",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -206,13 +206,13 @@
 					"response": []
 				},
 				{
-					"name": "post Copy",
+					"name": "delete",
 					"request": {
 						"method": "DELETE",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "[\r\n    {\r\n        \"id\": 1,\r\n        \"displayName\": \"Operator1\",\r\n        \"companyId\": 2,\r\n        \"companyName\": \"CompanyN\"\r\n    }\r\n]",
+							"raw": "[\r\n    1\r\n]",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -302,7 +302,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "[\r\n    {\r\n        \"name\" : \"CashBox3\",\r\n        \"companyId\" : 2\r\n    }\r\n]",
+							"raw": "[\r\n    {\r\n        \"name\" : \"CashBox1\",\r\n        \"companyId\" : 1\r\n    },\r\n    {\r\n        \"name\" : \"CashBox2\",\r\n        \"companyId\" : 1\r\n    }\r\n]",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -328,7 +328,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "[\r\n    1,\r\n    2\r\n]",
+							"raw": "[\r\n    1\r\n]",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -481,7 +481,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"operatorId\" : 2,\r\n    \"cashBoxId\" : 3,\r\n    \"chargeDate\" : \"2023-03-05\"\r\n}",
+							"raw": "{\r\n    \"operatorId\" : 2,\r\n    \"cashBoxId\" : 2,\r\n    \"chargeDate\" : \"2023-03-05\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -603,7 +603,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "[\r\n    {\r\n        \"codValuta\" : \"USD\",\r\n        \"curs\" : 18.887,\r\n        \"rateDate\" : \"2023-03-04\",\r\n        \"companyId\" : 2\r\n    }\r\n]",
+							"raw": "[\r\n    {\r\n        \"codValuta\" : \"USD\",\r\n        \"curs\" : 18.887,\r\n        \"rateDate\" : \"2023-03-04\",\r\n        \"companyId\" : 1\r\n    }\r\n]",
 							"options": {
 								"raw": {
 									"language": "json"

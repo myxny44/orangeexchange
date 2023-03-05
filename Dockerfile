@@ -2,8 +2,8 @@ FROM openjdk:8-jdk-alpine
 
 WORKDIR /app
 
-COPY target/my-app.jar /app
+COPY build/libs/exchange-0.0.1-SNAPSHOT.jar /app
 
 EXPOSE 8080
 
-CMD ["java", "-jar", "my-app.jar"]
+CMD ["java", "-jar", "exchange-0.0.1-SNAPSHOT.jar"]
